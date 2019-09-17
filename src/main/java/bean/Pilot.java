@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 import java.util.Objects;
 import java.util.StringJoiner;

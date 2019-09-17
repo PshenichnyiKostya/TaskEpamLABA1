@@ -1,14 +1,14 @@
-package main.java.dao;
+package dao;
 
 import java.util.List;
 
 public interface Dao<T> {
 
-    void delete(T obj) throws DabException;
+    void delete(T obj) throws DaoException;
 
-    void add(T obj) throws DabException;
+    void add(T obj) throws DaoException;
 
-    T get(long id) throws DabException;
+    T get(String  id) throws DaoException;
 
-    void addAll(List<T> list) throws DabException;
+    void addAll(List<T> list) throws DaoException;
 }

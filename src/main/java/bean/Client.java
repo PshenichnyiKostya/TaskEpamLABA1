@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -10,13 +10,13 @@ public class Client {
     private String pass;
     private String name;
     private String surname;
-    private long id;
+    private String id;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -75,7 +75,7 @@ public class Client {
         Client client = (Client) o;
         return getDiscount() == client.getDiscount() &&
                 Double.compare(client.getFreeMiles(), getFreeMiles()) == 0 &&
-                getId() == client.getId() &&
+                getId().equals(client.getId()) &&
                 Objects.equals(getLogin(), client.getLogin()) &&
                 Objects.equals(getPass(), client.getPass()) &&
                 Objects.equals(getName(), client.getName()) &&
@@ -98,5 +98,22 @@ public class Client {
                 .add("surname='" + surname + "'")
                 .add("id=" + id)
                 .toString();
+    }
+
+    public Client(Client client) {
+        this(client.discount, client.freeMiles, client.login, client.pass, client.name, client.surname, client.id);
+    }
+
+    public Client(int discount, double freeMiles, String login, String pass, String name, String surname, String id) {
+        this.discount = discount;
+        this.freeMiles = freeMiles;
+        this.login = login;
+        this.pass = pass;
+        this.name = name;
+        this.surname = surname;
+        this.id = id;
+    }
+
+    public Client() {
     }
 }

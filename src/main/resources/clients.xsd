@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+           attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="clients">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client"
+                            type="client"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="client">
+
+        <xs:sequence>
+            <xs:element name="id" type="id"/>
+            <xs:element name="free-miles">
+                <xs:simpleType>
+                    <xs:restriction base="xs:double">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="1000000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="login" type="login"/>
+            <xs:element name="pass" type="pass"/>
+            <xs:element name="name" type="xs:name"/>
+            <xs:element name="surname" type="surname"/>
+            <xs:element name="discount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="id">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[a-z]{2}\d{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--    <xs:simpleType name="id">-->
+    <!--        <xs:restriction base="xs:ID">-->
+    <!--            <xs:pattern value="[0-9].*"/>-->
+    <!--        </xs:restriction>-->
+    <!--    </xs:simpleType>-->
+
+    <xs:simpleType name="pass">
+        <xs:restriction base="xs:string">
+            <!--            <xs:pattern value="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}"/>-->
+            <xs:pattern value="[a-zA-Z0-9]{8,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="login">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]{2,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="surname">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{3,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{3,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema>

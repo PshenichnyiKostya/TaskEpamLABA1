@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 public abstract class Plane {
     private Model model;
@@ -12,4 +12,11 @@ public abstract class Plane {
         return model;
     }
 
+    public boolean isFree() {
+        return free;
+    }
+
+    public void setFree(boolean free) {
+        this.free = free;
+    }
 }

@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 public enum Rang {
     BUSINESS(100),

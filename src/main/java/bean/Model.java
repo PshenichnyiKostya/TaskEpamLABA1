@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 public enum Model {
     BOEING(10000, 100),

@@ -1,4 +1,4 @@
-package main.java.bean;
+package bean;
 
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -10,6 +10,15 @@ public class Ticket {
     private boolean cabinLag;
     private Rang rang;
     private double totalPrice;
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public double getPrice() {
         return price;
@@ -86,6 +95,7 @@ public class Ticket {
                 .add("cabinLag=" + cabinLag)
                 .add("rang=" + rang)
                 .add("totalPrice=" + totalPrice)
+                .add("client=" + client.toString())
                 .toString();
     }
 }
