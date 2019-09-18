@@ -15,6 +15,8 @@ public class ByName implements Comparator<Client>, Finder<Client> {
         return o1.getName().compareTo(o2.getName());
     }
 
+
+
     @Override
     public boolean find(Client obj, Object tag) {
         return obj.getName().equals(tag);

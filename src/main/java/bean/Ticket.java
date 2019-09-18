@@ -14,7 +14,7 @@ public class Ticket {
     private Rang rang;
     private double totalPrice;
     private Client client;
-
+    
     /**
      * Gets client.
      *

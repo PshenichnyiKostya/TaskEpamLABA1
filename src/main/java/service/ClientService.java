@@ -4,6 +4,7 @@ import bean.Client;
 import dao.DaoClient;
 import dao.DaoException;
 import dao.DaoFactory;
+import service.tag.ByDiscountAndFreeMiles;
 import service.tag.ByFreeMiles;
 import service.tag.ByName;
 
@@ -101,6 +102,8 @@ public class ClientService implements Service<Client> {
             daoClient.getClientList().sort(new ByName());
         } else if (comparator instanceof ByFreeMiles) {
             daoClient.getClientList().sort(new ByFreeMiles());
+        } else if (comparator instanceof ByDiscountAndFreeMiles) {
+            daoClient.getClientList().sort(new ByDiscountAndFreeMiles());
         } else throw new ServiceException("No such comparator");
 
     }
