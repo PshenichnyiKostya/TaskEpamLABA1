@@ -82,7 +82,6 @@ public class Main {
             serviceException.printStackTrace();
         }
 
-
         //Delete
         try {
             clientService.delete("ht220987");

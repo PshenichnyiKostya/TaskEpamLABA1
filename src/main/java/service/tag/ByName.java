@@ -5,6 +5,9 @@ import service.Finder;
 
 import java.util.Comparator;
 
+/**
+ * The type By name for sort, find and etc. by this tag.
+ */
 public class ByName implements Comparator<Client>, Finder<Client> {
 
     @Override

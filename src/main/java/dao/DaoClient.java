@@ -5,9 +5,17 @@ import bean.Client;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dao client.
+ */
 public class DaoClient implements Dao<Client> {
     private static DaoClient ourInstance = new DaoClient();
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     static DaoClient getInstance() {
         return ourInstance;
     }
@@ -63,6 +71,11 @@ public class DaoClient implements Dao<Client> {
         clientList.addAll(list);
     }
 
+    /**
+     * Gets client list.
+     *
+     * @return the client list
+     */
     public List<Client> getClientList() {
         return clientList;
     }

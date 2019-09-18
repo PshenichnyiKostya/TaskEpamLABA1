@@ -3,40 +3,83 @@ package bean;
 import java.util.Objects;
 import java.util.StringJoiner;
 
+/**
+ * The type Pilot.
+ */
 public class Pilot {
     private double salary;
     private String name;
     private String surname;
     private int flying;
 
+    /**
+     * Gets salary.
+     *
+     * @return the salary
+     */
     public double getSalary() {
         return salary;
     }
 
+    /**
+     * Sets salary.
+     *
+     * @param salary the salary
+     */
     public void setSalary(double salary) {
         this.salary = salary;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets surname.
+     *
+     * @return the surname
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * Sets surname.
+     *
+     * @param surname the surname
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
+    /**
+     * Gets flying.
+     *
+     * @return the flying
+     */
     public int getFlying() {
         return flying;
     }
 
+    /**
+     * Sets flying.
+     *
+     * @param flying the flying
+     */
     public void setFlying(int flying) {
         this.flying = flying;
     }

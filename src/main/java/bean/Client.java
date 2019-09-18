@@ -3,6 +3,9 @@ package bean;
 import java.util.Objects;
 import java.util.StringJoiner;
 
+/**
+ * The type Client.
+ */
 public class Client {
     private int discount;
     private double freeMiles;
@@ -12,58 +15,128 @@ public class Client {
     private String surname;
     private String id;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Gets discount.
+     *
+     * @return the discount
+     */
     public int getDiscount() {
         return discount;
     }
 
+    /**
+     * Sets discount.
+     *
+     * @param discount the discount
+     */
     public void setDiscount(int discount) {
         this.discount = discount;
     }
 
+    /**
+     * Gets free miles.
+     *
+     * @return the free miles
+     */
     public double getFreeMiles() {
         return freeMiles;
     }
 
+    /**
+     * Sets free miles.
+     *
+     * @param freeMiles the free miles
+     */
     public void setFreeMiles(double freeMiles) {
         this.freeMiles = freeMiles;
     }
 
+    /**
+     * Gets login.
+     *
+     * @return the login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * Sets login.
+     *
+     * @param login the login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     * Gets pass.
+     *
+     * @return the pass
+     */
     public String getPass() {
         return pass;
     }
 
+    /**
+     * Sets pass.
+     *
+     * @param pass the pass
+     */
     public void setPass(String pass) {
         this.pass = pass;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets surname.
+     *
+     * @return the surname
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * Sets surname.
+     *
+     * @param surname the surname
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
@@ -100,10 +173,26 @@ public class Client {
                 .toString();
     }
 
+    /**
+     * Instantiates a new Client.
+     *
+     * @param client the client
+     */
     public Client(Client client) {
         this(client.discount, client.freeMiles, client.login, client.pass, client.name, client.surname, client.id);
     }
 
+    /**
+     * Instantiates a new Client.
+     *
+     * @param discount  the discount
+     * @param freeMiles the free miles
+     * @param login     the login
+     * @param pass      the pass
+     * @param name      the name
+     * @param surname   the surname
+     * @param id        the id
+     */
     public Client(int discount, double freeMiles, String login, String pass, String name, String surname, String id) {
         this.discount = discount;
         this.freeMiles = freeMiles;
@@ -114,6 +203,9 @@ public class Client {
         this.id = id;
     }
 
+    /**
+     * Instantiates a new Client.
+     */
     public Client() {
     }
 }

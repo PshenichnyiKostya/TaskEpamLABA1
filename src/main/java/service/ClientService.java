@@ -11,9 +11,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * The type Client service.
+ */
 public class ClientService implements Service<Client> {
     private static ClientService ourInstance = new ClientService();
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static ClientService getInstance() {
         return ourInstance;
     }
@@ -78,6 +86,12 @@ public class ClientService implements Service<Client> {
         daoClient.delete(client);
     }
 
+    /**
+     * Sort.
+     *
+     * @param comparator the comparator for sorting
+     * @throws ServiceException the service exception
+     */
     public void sort(Comparator<Client> comparator) throws ServiceException {
         DaoFactory daoFactory = DaoFactory.getInstance();
         DaoClient daoClient = (DaoClient) daoFactory.getDaoClient();
@@ -91,6 +105,14 @@ public class ClientService implements Service<Client> {
 
     }
 
+    /**
+     * Find list.
+     *
+     * @param finder the finder for find obj
+     * @param tag    the tag-criteria for finding
+     * @return the list of found clients
+     * @throws ServiceException the service exception
+     */
     public List<Client> find(Finder<Client> finder, Object tag) throws ServiceException {
         DaoFactory daoFactory = DaoFactory.getInstance();
         DaoClient daoClient = (DaoClient) daoFactory.getDaoClient();

@@ -17,6 +17,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dom client parser.
+ */
 public class DOMClientParser implements XMLParser<Client> {
 
     private static DOMClientParser ourInstance;
@@ -39,7 +42,11 @@ public class DOMClientParser implements XMLParser<Client> {
     }
 
 
-
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static DOMClientParser getInstance() {
         return ourInstance;
     }

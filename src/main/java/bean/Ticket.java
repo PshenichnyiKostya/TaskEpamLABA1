@@ -3,6 +3,9 @@ package bean;
 import java.util.Objects;
 import java.util.StringJoiner;
 
+/**
+ * The type Ticket.
+ */
 public class Ticket {
     private double price;
     private boolean baggage;
@@ -12,18 +15,38 @@ public class Ticket {
     private double totalPrice;
     private Client client;
 
+    /**
+     * Gets client.
+     *
+     * @return the client
+     */
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Sets client.
+     *
+     * @param client the client
+     */
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Sets price.
+     *
+     * @param price the price
+     */
     public void setPrice(double price) {
         this.price = price;
     }
