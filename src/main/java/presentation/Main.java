@@ -8,7 +8,7 @@ import parser.DOMClientParser;
 import parser.ParserException;
 import parser.ParserFactory;
 import service.ClientService;
-import service.ServiceExeption;
+import service.ServiceException;
 import service.ServiceFactory;
 import service.tag.ByFreeMiles;
 import service.tag.ByName;
@@ -47,23 +47,23 @@ public class Main {
         //Create
         try {
             clientService.create(client);
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (ServiceException | DaoException serviceException) {
+            serviceException.printStackTrace();
         }
 
         //Read
         try {
             System.out.println(clientService.read("ht220987"));
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (DaoException serviceException) {
+            serviceException.printStackTrace();
         }
 
         //Update
         client.setLogin("poit");
         try {
             clientService.update(client);
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (ServiceException | DaoException serviceException) {
+            serviceException.printStackTrace();
         }
         client.setPass("asdasdasdasdasd");
 
@@ -71,23 +71,23 @@ public class Main {
         //Find
         try {
             System.out.println(clientService.find(new ByName(), "Kostya"));
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (ServiceException serviceException) {
+            serviceException.printStackTrace();
         }
 
         //Sort
         try {
             clientService.sort(new ByFreeMiles());
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (ServiceException serviceException) {
+            serviceException.printStackTrace();
         }
 
 
         //Delete
         try {
             clientService.delete("ht220987");
-        } catch (ServiceExeption serviceExeption) {
-            serviceExeption.printStackTrace();
+        } catch (DaoException serviceException) {
+            serviceException.printStackTrace();
         }
         clients = daoClient.getClientList();
         clients.forEach(System.out::println);

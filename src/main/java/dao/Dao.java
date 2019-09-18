@@ -8,7 +8,7 @@ public interface Dao<T> {
 
     void add(T obj) throws DaoException;
 
-    T get(String  id) throws DaoException;
+    T get(String id) throws DaoException;
 
     void addAll(List<T> list) throws DaoException;
 }
