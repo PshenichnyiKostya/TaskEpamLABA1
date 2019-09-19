@@ -4,19 +4,34 @@ import bean.Client;
 import dao.DaoClient;
 import dao.DaoException;
 import dao.DaoFactory;
+import org.apache.log4j.Logger;
 import parser.DOMClientParser;
 import parser.ParserException;
 import parser.ParserFactory;
 import service.ClientService;
 import service.ServiceException;
 import service.ServiceFactory;
+import service.tag.ByDiscountAndFreeMiles;
 import service.tag.ByFreeMiles;
 import service.tag.ByName;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Main.
+ */
 public class Main {
+    /**
+     * The constant logger.
+     */
+    public static final Logger logger = Logger.getLogger(Main.class);
+
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         ParserFactory parserFactory = ParserFactory.getInstance();
         DOMClientParser domClientParser = (DOMClientParser) parserFactory.getDomClientParser();
@@ -53,7 +68,7 @@ public class Main {
 
         //Read
         try {
-            System.out.println(clientService.read("ht220987"));
+            logger.info(clientService.read("ht220987"));
         } catch (DaoException serviceException) {
             serviceException.printStackTrace();
         }
@@ -70,7 +85,7 @@ public class Main {
 
         //Find
         try {
-            System.out.println(clientService.find(new ByName(), "Kostya"));
+            logger.info(clientService.find(new ByName(), "Kostya"));
         } catch (ServiceException serviceException) {
             serviceException.printStackTrace();
         }
@@ -82,6 +97,14 @@ public class Main {
             serviceException.printStackTrace();
         }
 
+
+        //Sort by 2 args
+        try {
+            clientService.sort(new ByDiscountAndFreeMiles());
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+
         //Delete
         try {
             clientService.delete("ht220987");
@@ -89,6 +112,6 @@ public class Main {
             serviceException.printStackTrace();
         }
         clients = daoClient.getClientList();
-        clients.forEach(System.out::println);
+        clients.forEach(logger::info);
     }
 }
