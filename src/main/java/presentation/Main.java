@@ -25,7 +25,7 @@ public class Main {
     /**
      * The constant logger.
      */
-    public static final Logger logger = Logger.getLogger(Main.class);
+    private static final Logger logger = Logger.getLogger(Main.class);
 
     /**
      * The entry point of application.
@@ -58,6 +58,7 @@ public class Main {
         client.setName("Kostya");
         client.setPass("12345678Qwe");
         client.setSurname("Petrov");
+
         //Createl
         try {
             clientService.create(client);
