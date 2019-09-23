@@ -144,7 +144,7 @@ public class Client {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Client)) return false;
+        if (!(o.getClass() ==this.getClass())) return false;
         Client client = (Client) o;
         return getDiscount() == client.getDiscount() &&
                 Double.compare(client.getFreeMiles(), getFreeMiles()) == 0 &&
@@ -208,4 +208,6 @@ public class Client {
      */
     public Client() {
     }
+
+
 }

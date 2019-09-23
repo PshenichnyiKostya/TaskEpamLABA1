@@ -11,7 +11,7 @@ public interface Service<T> {
     /**
      * Create.
      *
-     * @param obj the obj try to ccreate
+     * @param obj the obj try to create
      * @throws ServiceException the service exception
      * @throws DaoException     the dao exception
      */

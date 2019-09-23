@@ -38,7 +38,10 @@ public class DaoClient implements Dao<Client> {
 
     @Override
     public void add(Client obj) throws DaoException {
-        if (obj == null) throw new DaoException("Client is null in add method");
+        if (obj == null) {
+            throw new DaoException("Client is null in add method");
+        }
+
         for (Client client : clientList) {
             if (client.equals(obj)) {
                 throw new DaoException("This obj in exist");
@@ -59,8 +62,10 @@ public class DaoClient implements Dao<Client> {
 
     @Override
     public void addAll(List<Client> list) throws DaoException {
-        if (list == null) throw new DaoException("Client is null in addAll method");
-        StringBuilder s = new StringBuilder();
+        if (list == null) {
+            throw new DaoException("Client is null in addAll method");
+        }
+
         for (Client client : list) {
             for (Client client1 : clientList) {
                 if (client.equals(client1)) {

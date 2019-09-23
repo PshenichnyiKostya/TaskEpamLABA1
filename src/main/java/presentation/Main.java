@@ -58,8 +58,7 @@ public class Main {
         client.setName("Kostya");
         client.setPass("12345678Qwe");
         client.setSurname("Petrov");
-
-        //Create
+        //Createl
         try {
             clientService.create(client);
         } catch (ServiceException | DaoException serviceException) {
@@ -97,7 +96,6 @@ public class Main {
             serviceException.printStackTrace();
         }
 
-
         //Sort by 2 args
         try {
             clientService.sort(new ByDiscountAndFreeMiles());
@@ -113,5 +111,6 @@ public class Main {
         }
         clients = daoClient.getClientList();
         clients.forEach(logger::info);
+
     }
 }

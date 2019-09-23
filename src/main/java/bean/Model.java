@@ -13,7 +13,6 @@ public enum Model {
      */
     EMBRAER(11000, 150);
 
-
     private double weight;
     private int seats;
 

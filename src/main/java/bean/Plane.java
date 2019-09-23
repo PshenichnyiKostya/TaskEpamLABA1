@@ -3,7 +3,7 @@ package bean;
 /**
  * The type Plane.
  */
-public abstract class Plane {
+public class Plane {
     private Model model;
     private boolean free;
 

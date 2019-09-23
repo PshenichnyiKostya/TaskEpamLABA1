@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<clients xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+         xs:noNamespaceSchemaLocation="clients.xsd">
+    <client>
+        <id>hp222222</id>
+        <free-miles>1000</free-miles>
+        <login>qwerty123</login>
+        <pass>qwerty123</pass>
+        <name>Vanya</name>
+        <surname>Petrov</surname>
+        <discount>10</discount>
+    </client>
+
+    <client>
+        <id>hp353425</id>
+        <free-miles>999</free-miles>
+        <login>poiuy</login>
+        <pass>sdfgh1D2</pass>
+        <name>Pasha</name>
+        <surname>Kazancev</surname>
+        <discount>20</discount>
+    </client>
+
+    <client>
+        <id>hp353445</id>
+        <free-miles>19</free-miles>
+        <login>poiury</login>
+        <pass>sdfgh1D2</pass>
+        <name>Kostya</name>
+        <surname>Krivoi</surname>
+        <discount>20</discount>
+    </client>
+
+</clients>

@@ -44,7 +44,6 @@ public class DOMClientParser implements XMLParser<Client> {
 
     /**
      * Gets instance.
-     *
      * @return the instance
      */
     public static DOMClientParser getInstance() {
