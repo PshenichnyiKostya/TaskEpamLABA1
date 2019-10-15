@@ -33,12 +33,4 @@ public interface Dao<T> {
      * @throws DaoException the dao exception
      */
     T get(String id) throws DaoException;
-
-    /**
-     * Add all.
-     *
-     * @param list the list to add
-     * @throws DaoException the dao exception
-     */
-    void addAll(List<T> list) throws DaoException;
 }

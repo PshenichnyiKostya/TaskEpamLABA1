@@ -1,12 +1,9 @@
-package presentation;
+package controller;
 
 import bean.Client;
-import bean.Gender;
 import dao.DaoClient;
 import dao.DaoException;
 import dao.DaoFactory;
-import dao.SQLClientDao;
-import org.xml.sax.SAXException;
 import parser.DOMClientParser;
 import parser.ParserException;
 import parser.ParserFactory;
@@ -16,25 +13,17 @@ import service.ServiceFactory;
 import service.tag.ByDiscountAndFreeMiles;
 import service.tag.ByFreeMiles;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The type Main.
- */
-public class Main {
-    /**
-     * The constant logger.
-     */
-
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) throws IOException, SAXException {
+public class MyServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ParserFactory parserFactory = ParserFactory.getInstance();
         DOMClientParser domClientParser = (DOMClientParser) parserFactory.getDomClientParser();
         List<Client> clients = new ArrayList<>();
@@ -56,7 +45,6 @@ public class Main {
         client.setName("Kostya");
         client.setPass("12345678Qwe");
         client.setSurname("Petrov");
-        client.setGender(Gender.MALE);
         //Createl
         try {
             clientService.create(client);
@@ -96,22 +84,7 @@ public class Main {
             serviceException.printStackTrace();
         }
         for (Client client1 : daoClient.getClientList()) {
-            System.out.println(client1);
+            resp.getWriter().write(String.valueOf(client1));
         }
-
-
-        SQLClientDao sqlClientDao;
-        try {
-
-            sqlClientDao = new SQLClientDao();
-//            sqlClientDao.add(client);
-            sqlClientDao.delete(client);
-        } catch (SQLException | DaoException e) {
-            e.printStackTrace();
-        }
-
     }
-
-
 }
-

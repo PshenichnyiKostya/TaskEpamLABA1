@@ -48,4 +48,6 @@ public enum Model {
         this.weight = weight;
         this.seats = seats;
     }
+
+
 }

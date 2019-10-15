@@ -15,5 +15,6 @@ public interface XMLParser<T> {
      * @return the data
      * @throws ParserException the parser exception
      */
+
     List<T> getData(String path) throws ParserException;
 }

@@ -14,6 +14,16 @@ public class Client {
     private String name;
     private String surname;
     private String id;
+    private Gender gender;
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
 
     /**
      * Gets id.
@@ -144,7 +154,7 @@ public class Client {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o.getClass() ==this.getClass())) return false;
+        if (!(o.getClass() == this.getClass())) return false;
         Client client = (Client) o;
         return getDiscount() == client.getDiscount() &&
                 Double.compare(client.getFreeMiles(), getFreeMiles()) == 0 &&
@@ -158,19 +168,6 @@ public class Client {
     @Override
     public int hashCode() {
         return Objects.hash(getDiscount(), getFreeMiles(), getLogin(), getPass(), getName(), getSurname(), getId());
-    }
-
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Client.class.getSimpleName() + "[", "]")
-                .add("discount=" + discount)
-                .add("freeMiles=" + freeMiles)
-                .add("login='" + login + "'")
-                .add("pass='" + pass + "'")
-                .add("name='" + name + "'")
-                .add("surname='" + surname + "'")
-                .add("id=" + id)
-                .toString();
     }
 
     /**
@@ -201,6 +198,20 @@ public class Client {
         this.name = name;
         this.surname = surname;
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Client.class.getSimpleName() + "[", "]")
+                .add("discount=" + discount)
+                .add("freeMiles=" + freeMiles)
+                .add("login='" + login + "'")
+                .add("pass='" + pass + "'")
+                .add("name='" + name + "'")
+                .add("surname='" + surname + "'")
+                .add("id='" + id + "'")
+                .add("gender=" + gender)
+                .toString();
     }
 
     /**

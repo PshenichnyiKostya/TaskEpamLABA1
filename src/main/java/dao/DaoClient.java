@@ -60,21 +60,6 @@ public class DaoClient implements Dao<Client> {
         throw new DaoException("This object is not exist");
     }
 
-    @Override
-    public void addAll(List<Client> list) throws DaoException {
-        if (list == null) {
-            throw new DaoException("Client is null in addAll method");
-        }
-
-        for (Client client : list) {
-            for (Client client1 : clientList) {
-                if (client.equals(client1)) {
-                    throw new DaoException("Some of this obj is exist");
-                }
-            }
-        }
-        clientList.addAll(list);
-    }
 
     /**
      * Gets client list.

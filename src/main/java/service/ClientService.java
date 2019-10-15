@@ -94,7 +94,6 @@ public class ClientService implements Service<Client> {
         DaoFactory daoFactory = DaoFactory.getInstance();
         DaoClient daoClient = (DaoClient) daoFactory.getDaoClient();
         if (comparator == null) throw new ServiceException("Comparator is null");
-
         daoClient.getClientList().sort(comparator);
     }
 

@@ -11,7 +11,6 @@
         </xs:complexType>
     </xs:element>
     <xs:complexType name="client">
-
         <xs:sequence>
             <xs:element name="id" type="id"/>
             <xs:element name="free-miles">
@@ -24,7 +23,7 @@
             </xs:element>
             <xs:element name="login" type="login"/>
             <xs:element name="pass" type="pass"/>
-            <xs:element name="name" type="xs:name"/>
+            <xs:element name="name" type="name"/>
             <xs:element name="surname" type="surname"/>
             <xs:element name="discount">
                 <xs:simpleType>
@@ -35,8 +34,16 @@
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
+        <xs:attribute name="gender" type="gender" use="required"/>
     </xs:complexType>
 
+
+    <xs:simpleType name="gender" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="female"/>
+            <xs:enumeration value="male"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:simpleType name="id">
         <xs:restriction base="xs:ID">
@@ -44,11 +51,11 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <!--    <xs:simpleType name="id">-->
-    <!--        <xs:restriction base="xs:ID">-->
-    <!--            <xs:pattern value="[0-9].*"/>-->
-    <!--        </xs:restriction>-->
-    <!--    </xs:simpleType>-->
+    <!--        <xs:simpleType name="id">-->
+    <!--            <xs:restriction base="xs:ID">-->
+    <!--                <xs:pattern value="[0-9].*"/>-->
+    <!--            </xs:restriction>-->
+    <!--        </xs:simpleType>-->
 
     <xs:simpleType name="pass">
         <xs:restriction base="xs:string">

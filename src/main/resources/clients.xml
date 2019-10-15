@@ -2,7 +2,7 @@
 
 <clients xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
          xs:noNamespaceSchemaLocation="clients.xsd">
-    <client>
+    <client gender="male">
         <id>hp222222</id>
         <free-miles>1000</free-miles>
         <login>qwerty123</login>
@@ -10,9 +10,10 @@
         <name>Vanya</name>
         <surname>Petrov</surname>
         <discount>10</discount>
+
     </client>
 
-    <client>
+    <client gender="male">
         <id>hp353425</id>
         <free-miles>999</free-miles>
         <login>poiuy</login>
@@ -20,9 +21,11 @@
         <name>Pasha</name>
         <surname>Kazancev</surname>
         <discount>20</discount>
+
+
     </client>
 
-    <client>
+    <client gender="female">
         <id>hp353445</id>
         <free-miles>19</free-miles>
         <login>poiury</login>
@@ -30,6 +33,7 @@
         <name>Kostya</name>
         <surname>Krivoi</surname>
         <discount>20</discount>
+
     </client>
 
 </clients>
