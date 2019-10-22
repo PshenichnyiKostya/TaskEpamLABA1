@@ -99,17 +99,17 @@ public class Main {
             System.out.println(client1);
         }
 
-
         SQLClientDao sqlClientDao;
         try {
 
             sqlClientDao = new SQLClientDao();
-//            sqlClientDao.add(client);
-            sqlClientDao.delete(client);
+            sqlClientDao.add(client);
+            sqlClientDao.add(client);
+//            sqlClientDao.delete(client);
+//            sqlClientDao.get(client.getId());
         } catch (SQLException | DaoException e) {
             e.printStackTrace();
         }
-
     }
 
 

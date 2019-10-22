@@ -63,10 +63,10 @@ public class SQLClientDao extends BaseMysql<Client> implements Dao<Client> {
 
     }
 
-    @Override
-    void setPrimary(PreparedStatement statement, Client entity) throws SQLException {
-
-    }
+//    @Override
+//    void setPrimary(PreparedStatement statement, Client entity) throws SQLException {
+//
+//    }
 
     @Override
     public void delete(Client obj) throws DaoException {
