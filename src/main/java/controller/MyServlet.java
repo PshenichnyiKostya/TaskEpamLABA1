@@ -13,7 +13,6 @@ import service.ServiceFactory;
 import service.tag.ByDiscountAndFreeMiles;
 import service.tag.ByFreeMiles;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +22,7 @@ import java.util.List;
 
 public class MyServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ParserFactory parserFactory = ParserFactory.getInstance();
         DOMClientParser domClientParser = (DOMClientParser) parserFactory.getDomClientParser();
         List<Client> clients = new ArrayList<>();
@@ -32,6 +31,7 @@ public class MyServlet extends HttpServlet {
         } catch (ParserException e) {
             e.printStackTrace();
         }
+        resp.getWriter().write(clients.toString());
         DaoFactory daoFactory = DaoFactory.getInstance();
         DaoClient daoClient = (DaoClient) daoFactory.getDaoClient();
         daoClient.getClientList().addAll(clients);
@@ -51,7 +51,6 @@ public class MyServlet extends HttpServlet {
         } catch (ServiceException | DaoException serviceException) {
             serviceException.printStackTrace();
         }
-
 
         //Update
         client.setLogin("poit");

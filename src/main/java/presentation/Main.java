@@ -5,8 +5,6 @@ import bean.Gender;
 import dao.DaoClient;
 import dao.DaoException;
 import dao.DaoFactory;
-import dao.SQLClientDao;
-import org.xml.sax.SAXException;
 import parser.DOMClientParser;
 import parser.ParserException;
 import parser.ParserFactory;
@@ -16,7 +14,6 @@ import service.ServiceFactory;
 import service.tag.ByDiscountAndFreeMiles;
 import service.tag.ByFreeMiles;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +22,7 @@ import java.util.List;
  * The type Main.
  */
 public class Main {
+
     /**
      * The constant logger.
      */
@@ -34,7 +32,8 @@ public class Main {
      *
      * @param args the input arguments
      */
-    public static void main(String[] args) throws IOException, SAXException {
+    public static void main(String[] args) {
+
         ParserFactory parserFactory = ParserFactory.getInstance();
         DOMClientParser domClientParser = (DOMClientParser) parserFactory.getDomClientParser();
         List<Client> clients = new ArrayList<>();
@@ -99,16 +98,21 @@ public class Main {
             System.out.println(client1);
         }
 
-        SQLClientDao sqlClientDao;
+//        SQLClientDao sqlClientDao;
+//       [
+//       try {
+//
+//            sqlClientDao = new SQLClientDao();
+////            sqlClientDao.add(client);
+////            sqlClientDao.delete(client);
+////            sqlClientDao.get(client.getId());
+//        } catch (SQLException | DaoException e) {
+//            e.printStackTrace();
+//        }
         try {
-
-            sqlClientDao = new SQLClientDao();
-            sqlClientDao.add(client);
-            sqlClientDao.add(client);
-//            sqlClientDao.delete(client);
-//            sqlClientDao.get(client.getId());
-        } catch (SQLException | DaoException e) {
-            e.printStackTrace();
+            clientService.migrateDataBase("/clients.xml");
+        } catch (ParserException | SQLException e) {
+            e.getMessage();
         }
     }
 

@@ -4,7 +4,12 @@ import bean.Client;
 import dao.DaoClient;
 import dao.DaoException;
 import dao.DaoFactory;
+import dao.SQLClientDao;
+import parser.DOMClientParser;
+import parser.ParserException;
+import parser.ParserFactory;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -117,5 +122,21 @@ public class ClientService implements Service<Client> {
         }
         if (found.isEmpty()) throw new ServiceException("No clients by our tag");
         return found;
+    }
+
+    public void migrateDataBase(String path) throws ParserException, SQLException {
+        ParserFactory parserFactory = ParserFactory.getInstance();
+        DOMClientParser domClientParser = (DOMClientParser) parserFactory.getDomClientParser();
+        List<Client> clients;
+        clients = domClientParser.getData("/clients.xml");
+        SQLClientDao sqlClientDao;
+        sqlClientDao = new SQLClientDao();
+        for (Client client : clients) {
+            try {
+                sqlClientDao.add(client);
+            } catch (DaoException e) {
+                e.getMessage();
+            }
+        }
     }
 }

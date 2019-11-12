@@ -35,5 +35,25 @@
         <discount>20</discount>
 
     </client>
+    <client gender="male">
+        <id>hp353444</id>
+        <free-miles>19</free-miles>
+        <login>poiqwr</login>
+        <pass>sdfgh1D2</pass>
+        <name>Kostya</name>
+        <surname>Krivoi</surname>
+        <discount>20</discount>
+
+    </client>
+    <client gender="male">
+        <id>hp353448</id>
+        <free-miles>19</free-miles>
+        <login>poiqw6</login>
+        <pass>sdfgh1D2</pass>
+        <name>Kostya</name>
+        <surname>Krivoi</surname>
+        <discount>20</discount>
+
+    </client>
 
 </clients>

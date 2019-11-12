@@ -3,14 +3,15 @@ package dao;
 import bean.Client;
 import bean.Gender;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SQLClientDao extends BaseMysql<Client> implements Dao<Client> {
-
+    private static final String DB_URL = "jdbc:mysql://localhost:8889/epam";
+    private static final String DB_USER = "kostya";
+    private static final String DB_PASSWORD = "123";
+    private final Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     private static final String CREATE = "INSERT INTO `client` (`id`,`name`, `pass`,`login`,`freemiles`,`discount`,`surname`,`gender`) VALUES (?,?,?,?,?,?,?,?)";
     private static final String DELETE = "DELETE FROM `client` WHERE `id`=?";
     private static final String READ = "SELECT `id`,`name`, `pass`,`login`,`freemiles`,`discount`,`surname`,`gender` FROM `client` WHERE `id` = ? ";
@@ -71,12 +72,12 @@ public class SQLClientDao extends BaseMysql<Client> implements Dao<Client> {
     @Override
     public void delete(Client obj) throws DaoException {
         String id = obj.getId();
-        deleteByString(DELETE, id, getConnection());
+        deleteByString(DELETE, id, connection);
     }
 
     @Override
     public void add(Client obj) throws DaoException {
-        defaultCreate(CREATE, getConnection(), obj);
+        defaultCreate(CREATE, connection, obj);
     }
 
     @Override
@@ -85,7 +86,7 @@ public class SQLClientDao extends BaseMysql<Client> implements Dao<Client> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = getConnection().prepareStatement(sql);
+            statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             resultSet = statement.executeQuery();
             Client user = null;
